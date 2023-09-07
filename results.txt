@@ -1,0 +1,149 @@
+name: Paul Martin Enano
+email: enano1@bu.edu
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random				10		6.2			466.3
+BFS					10		5.0			47.1
+DFS (depth limit 20)		10		16.2			19072.7
+DFS (depth limit 50)		10		48.2			49043.0
+Greedy Search (using h1) 	10		5.4			70.3
+A* (using h1)			10		5.0			6.5
+
+After running tests for the 5 algorithms, I have concluded that DFS is the most
+inefficient algorithm to use, which can be seen in the avg. moves and avg. states
+tested. The most efficient method appears to be A* which has the lowest avg. moves
+and avg. states tested. Following A* BFS and GreedySearcher are the almost tied for
+the second more efficient algorithm with very similar values for avg. moves and
+avg. states tested. Random is more efficient than using DFS but results will definitely
+vary because of its random nature.
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random				10		10.8			4211.5
+BFS					10		10.0			747.4
+DFS (depth limit 20)		10		18.8			24858.0			
+DFS (depth limit 50)		10		49.2			92287.3
+Greedy Search (using h1) 	8		76.0			325.625
+A* (using h1)			10		10.0			27.3
+
+After running tests for the 5 algorithms, I have concluded that GreedySearcher is
+the most inefficient algorithm to use, which can be seen in its avg. moves and avg. states 
+tested. The most efficient algorithm again is A* because it has the lowest avg.
+moves and avg. states tested. Following A*, BFS is the next efficient algorithm 
+with the lowest avg. moves. Following BFS is random with an avg. moves of 10.8
+and DFS(depth limit 20) with an avg. moves of 18.8 and DFS(depth limit 50) with an
+avg. moves of 49.2. Random did well during the tests, but again, it's inconsitent
+because of its random nature.
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random				8		17.75			18248.75
+BFS					10		15.0			12672.0
+DFS (depth limit 20)		10		17.8			68659.0
+DFS (depth limit 50)		10		48.6			111406.0
+Greedy Search (using h1) 	6		90.3			2718.0
+A* (using h1)			10		15.0			313.8
+
+After running tests for the 5 algorithms, I have concluded that GreedySearch is again,
+the most inefficient algorithm to use, not only because of the avg. moves of 90.3 but 
+because it only solves 6 problems out of 10. The most efficient algorithm is A* because
+it has the lowest avg. moves of 15.0 and tested the lowest avg. states tested. The next 
+most efficient algorithm is BFS with the lowest avg. moves of 15.0. DFS is as always, not
+the most reliable algorithm to use because it tests the most amount of states, but it also 
+doesn't have as much avg. moves as GreedySearch. The random algorithm did well, but it only 
+solved 8 out of 10 problems.
+
+
+heuristic h2
+------------
+This heuristic uses two counters, rowcount and columncount which are initially set to 0.
+Then I created a list of lists called columnGOAL which represents a list similar to GOAL_TILES
+from the board class. Then I make a nested loop which takes a range of 3 for the row and
+column of the board tiles. The first if statement checks if the specific tile is in the specific
+list in the list, GOAL_TILES. If it isn't, then we add one to rowcount. Similarly, I check the
+specified tile to see if its in the specified list in columnGOAL, and if it is, then I added
+1 to column count. At the end, the heuristic function returns a concatenation of rowcount and 
+column count.
+
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)		5		133.6			541.0
+Greedy (heuristic h2)		10		74.8			254.2
+# Greedy with any other heuristics
+
+A* (heuristic h1)			10		18.0			1602.0
+A* (heuristic h2)			10		18.0			510.9
+# Greedy with any other heuristics
+
+I waited 30seconds - 1minute for each of the puzzles but when testing Greedy h1, I could only
+solve 5 puzzles, while when using h2 I solved all 10 puzzles. Greedy h1 had an avg. moves of 133.6 
+and an avg. states tested of 541.0. While Greedy h2 had an avg. moves of 74.8 and an avg. states tested
+of 254.2. This shows that the h2 heuristic works better than h1 when working with Greedy. When working
+with A* h1 and h2 solved the same amount of puzzles and had the same avg. moves, however, the
+avg. states tested for h1 is more than 3 times more than that h's states tested.
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)		4		109.0			416.5	
+Greedy (heuristic h2)		10		83.4			397.7
+# Greedy with any other heuristics
+
+A* (heuristic h1)			10		21.0			6301.7
+A* (heuristic h2)			10		21.0			1499.6
+# Greedy with any other heuristics
+
+I waited 30seconds - 1minute for each of the puzzles but when testing Greedy h1, I could only
+solve 4 puzzles, while when using h2 I solved all 10 puzzles. Greedy h1 had an avg. moves of 109.0
+and an avg. states tested of 416.5. While Greedy h2 had an avg. moves of 83.4 and an avg. states tested of 397.7.
+This shows that the h2 heuristic works better than h1 when working with Greedy. When working with A* h1 and h2
+solved the same amount of puzzles and had the same avg. moves, however, the avg. states tested for h1 is more than 
+4 times than of h2's states tested.
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)		5		118.4			952.2
+Greedy (heuristic h2)		10		114.0			400.4
+# Greedy with any other heuristics
+
+A* (heuristic h1)			0		0			0		
+A* (heuristic h2)			10		24.0			5303.0
+# Greedy with any other heuristics
+
+I waited 1 minute for each test, however for many of the tests regarding 
+A* h1 and h2 however, I solved no puzzles after waiting that long. I'm confident
+my code is working correctly, so I believe it must be a problem with my computer.
+When testing Greedy, h2 solved all 10 puzzles while h1 only solved 5 puzzles after
+the time alloted. h2 and h1 had similar avg. moves but the states tested for h1 is 
+double that which h2 solved it in.
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)		3		198.3			2004.3
+Greedy (heuristic h2)		10		117.0			402.5
+# Greedy with any other heuristics
+
+A* (heuristic h1)			0		0			0
+A* (heuristic h2)			0		0			0
+# Greedy with any other heuristics
+
+I waited 1 minute for each test, however for many of the tests regarding 
+Greedy h1 and A* with both h1 and h2, no tests showed up. My code is working
+properly so I assume that it's a problem with my computer. However I noticed 
+that from the Greedy tests, h2 solved the puzzles faster with less moves and
+with less states tested that when using h1.
